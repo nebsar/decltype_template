@@ -21,13 +21,19 @@ using namespace std;
  */
 
 template<typename T1, typename T2>
-
 T2 add(T1 a, T2 b) {
+    return a + b;
+}
+
+template<typename T3, typename T4>
+auto add(T3 a, T4 b) -> decltype (a + b) { // decltype provides the result to be float.
     return a + b;
 }
 
 int main() {
     cout << add(1, 1.8) << endl; // T2 = add(T1,T2), since T2=1.8 and is float type and since @return type is T2 result is float type.
     cout << add(1.8, 1) << endl; // T2 = add(T1,T2), since T2=1 and is integer type and since @return type is T2 result is integer type.
+
+
 }
 
